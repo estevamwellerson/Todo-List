@@ -1,0 +1,50 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Rubik', 'Noto', 'sans-serif';
+}
+body{
+  display: grid;
+  place-content: center;
+  background-color: rgb(99, 71, 118);
+}
+.app{
+  margin-top: 8rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: rgb(124, 100, 131);
+}
+h1{
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+input{
+  width: 14.5rem;
+}
+
+input, button{
+  border: none;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0.5rem;
+  padding: 1rem 1.5rem;
+}
+
+li{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  background-color: rgb(45, 45, 45);
+  padding-left: 0.5rem;
+  margin: 0.5rem 0.5rem;
+}
+.btn-clear{
+  margin-top: 0.4rem;
+}
