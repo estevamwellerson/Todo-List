@@ -11,22 +11,32 @@ export default function App() {
       return;
     }
 
-    const item = {
-      id: Math.floor(Math.random() * 1000),
-      value: newItem,
-    };
+      const item = {
+        id: Math.floor(Math.random() * 1000),
+        value: newItem,
+      };
 
-    const saveItem = [...items, item];
-    setItems(saveItem);
-    localStorage.setItem("items", JSON.stringify(saveItem));
-    setNewItem("");
-  }
+      const saveItem = [...items, item];
+      setItems(saveItem);
+      localStorage.setItem("items", JSON.stringify(saveItem));
+      setNewItem("");
+    }
+    
+
 
   function deleteItem(id) {
     const updatedItems = items.filter((item) => item.id !== id);
     setItems(updatedItems);
     localStorage.setItem("items", JSON.stringify(updatedItems));
   }
+
+  function toggleComplete(id){
+    const updatedItems = items.map((item) => 
+    item.id === id ? {...item, complete: !item.complete} : item);
+    setItems(updatedItems);
+    localStorage.setItem('items', JSON.stringify(updatedItems))
+  }
+
 
   return (
     <div className="app">
@@ -51,15 +61,16 @@ export default function App() {
         {items.map((item) => {
           return (
             <div className="list">
-              <li key={item.id}>
-                {item.value}
+              <li key={item.id}>                         
+                  
+                <button className="btn-complete" onClick={(e) => toggleComplete(item.id)}>✅</button>
 
-                <button
-                  className="btn-clear"
-                  onClick={(e) => deleteItem(item.id)}
-                >
-                  🗑️
-                </button>
+                <span style={{textDecoration: item.complete ? 'line-through' : 'none'}}>
+                  {item.value}
+                </span>
+
+                <button className="btn-clear" onClick={(e) => deleteItem(item.id)} >🗑️</button>
+
               </li>
             </div>
           );
