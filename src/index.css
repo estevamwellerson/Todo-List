@@ -48,3 +48,16 @@ li{
 .btn-clear{
   margin-top: 0.4rem;
 }
+
+
+@media (max-width: 400px ){
+  .app{
+    text-align: center;
+  }
+  h1{
+    font-size: 30px;
+  }
+  .btn-add{
+    width: 14.5rem;
+  }
+}

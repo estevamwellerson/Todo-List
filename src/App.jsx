@@ -40,7 +40,7 @@ export default function App() {
           onChange={(e) => setNewItem(e.target.value)}
         />
 
-        <button type="submit" onClick={(e) => addItem()}>
+        <button className="btn-add" type="submit" onClick={(e) => addItem()}>
           Add
         </button>
       </div>
