@@ -26,8 +26,10 @@ const Home = () => {
   }
 
   function toggleComplete(id){
-    const updatedItems = items.map((item) =>
-    item.id === id ? {...item, complete: !item.complete} : item);
+    const updatedItems = items.map((item) => {
+      if (item.id !== id) return item;
+      return TodosHelpers.toggleStatus(item);
+    });
     setItems(updatedItems);
     TodosHelpers.TodoStorage.setItem(updatedItems)
   }

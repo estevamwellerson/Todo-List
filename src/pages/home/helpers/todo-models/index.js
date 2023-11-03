@@ -5,3 +5,10 @@ export const createTodoModel = ({ text }) => {
     complete: false,
   }
 }
+
+export const toggleTodoComplete = (todo) => {
+  return {
+    ...todo,
+    complete: !todo.complete,
+  }
+}
