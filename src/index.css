@@ -24,9 +24,6 @@ h1{
 
 input{
   width: 14.5rem;
-}
-
-input, .btn-add{
   border: none;
   border-radius: 0.5rem;
   margin: 0.5rem 0.5rem;
@@ -34,7 +31,6 @@ input, .btn-add{
 }
 
 .btn-complete, .btn-clear{
-  border: none;
   background-color: transparent;
   padding: 1rem;
 }
