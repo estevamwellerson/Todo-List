@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from "./shared/components";
 
 export default function App() {
   const initialItems = JSON.parse(localStorage.getItem("items")) || [];
@@ -50,9 +51,9 @@ export default function App() {
           onChange={(e) => setNewItem(e.target.value)}
         />
 
-        <button className="btn-add" type="submit" onClick={(e) => addItem()}>
+        <Button className="btn-add" type="submit" onClick={(e) => addItem()}>
           Add
-        </button>
+        </Button>
       </div>
 
       {/* 3.List of item */}
@@ -63,13 +64,13 @@ export default function App() {
             <div className="list">
               <li key={item.id}>                         
                   
-                <button className="btn-complete" onClick={(e) => toggleComplete(item.id)}>✅</button>
+                <Button className="btn-complete" onClick={(e) => toggleComplete(item.id)}>✅</Button>
 
                 <span style={{textDecoration: item.complete ? 'line-through' : 'none'}}>
                   {item.value}
                 </span>
 
-                <button className="btn-clear" onClick={(e) => deleteItem(item.id)} >🗑️</button>
+                <Button className="btn-clear" onClick={(e) => deleteItem(item.id)} >🗑️</Button>
 
               </li>
             </div>
