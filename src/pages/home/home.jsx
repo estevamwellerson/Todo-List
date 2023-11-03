@@ -3,7 +3,7 @@ import { TodoForm, TodoList } from "./components";
 import { TodosHelpers } from "./helpers";
 
 const Home = () => {
-  const initialItems = TodosHelpers.TodoStorage.getItem();
+  const initialItems = () => TodosHelpers.TodoStorage.getItem();
   const [newTodoText, setNewTodoText] = useState("");
   const [items, setItems] = useState(initialItems);
 
