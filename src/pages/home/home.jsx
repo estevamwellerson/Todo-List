@@ -12,10 +12,7 @@ const Home = () => {
       alert("adicione uma tarefa!");
       return;
     }
-    const item = {
-      id: Math.floor(Math.random() * 1000),
-      value: newTodoText,
-    };
+    const item = TodosHelpers.createTodo({ text: newTodoText });
     const saveItem = [...items, item];
     setItems(saveItem);
     TodosHelpers.TodoStorage.setItem(saveItem);
