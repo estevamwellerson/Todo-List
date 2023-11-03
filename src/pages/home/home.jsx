@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { TodoForm, TodoList } from "./components";
+import { TodosHelpers } from "./helpers";
 
 const Home = () => {
-  const initialItems = JSON.parse(localStorage.getItem("items")) || [];
+  const initialItems = TodosHelpers.TodoStorage.getItem();
   const [newTodoText, setNewTodoText] = useState("");
   const [items, setItems] = useState(initialItems);
 
@@ -17,21 +18,21 @@ const Home = () => {
     };
     const saveItem = [...items, item];
     setItems(saveItem);
-    localStorage.setItem("items", JSON.stringify(saveItem));
+    TodosHelpers.TodoStorage.setItem(saveItem);
     setNewTodoText("");
   }
 
   function deleteItem(id) {
     const updatedItems = items.filter((item) => item.id !== id);
     setItems(updatedItems);
-    localStorage.setItem("items", JSON.stringify(updatedItems));
+    TodosHelpers.TodoStorage.setItem(updatedItems);
   }
 
   function toggleComplete(id){
     const updatedItems = items.map((item) =>
     item.id === id ? {...item, complete: !item.complete} : item);
     setItems(updatedItems);
-    localStorage.setItem('items', JSON.stringify(updatedItems))
+    TodosHelpers.TodoStorage.setItem(updatedItems)
   }
 
   return (
