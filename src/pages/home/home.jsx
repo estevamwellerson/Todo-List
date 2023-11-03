@@ -3,22 +3,22 @@ import { TodoForm, TodoList } from "./components";
 
 const Home = () => {
   const initialItems = JSON.parse(localStorage.getItem("items")) || [];
-  const [newItem, setNewItem] = useState("");
+  const [newTodoText, setNewTodoText] = useState("");
   const [items, setItems] = useState(initialItems);
 
   function addItem() {
-    if (!newItem) {
+    if (!newTodoText) {
       alert("adicione uma tarefa!");
       return;
     }
     const item = {
       id: Math.floor(Math.random() * 1000),
-      value: newItem,
+      value: newTodoText,
     };
     const saveItem = [...items, item];
     setItems(saveItem);
     localStorage.setItem("items", JSON.stringify(saveItem));
-    setNewItem("");
+    setNewTodoText("");
   }
 
   function deleteItem(id) {
@@ -37,7 +37,7 @@ const Home = () => {
   return (
     <>
       <h1>TODO - LIST 📔</h1>
-      <TodoForm value={newItem} onTypeTodo={setNewItem} onAddTodo={addItem} />
+      <TodoForm value={newTodoText} onTypeTodo={setNewTodoText} onAddTodo={addItem} />
       <TodoList items={items} onToggle={toggleComplete} onDelete={deleteItem} />
     </>
   )
