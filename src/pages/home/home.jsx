@@ -53,7 +53,7 @@ const Home = () => {
       <ul>
         {items.map((item) => {
           return (
-            <div className="list">
+            <div className="list" key={item.id}>
               <li key={item.id}>
                 <Button className="btn-icon" onClick={(e) => toggleComplete(item.id)}>✅</Button>
                 <span style={{textDecoration: item.complete ? 'line-through' : 'none'}}>
