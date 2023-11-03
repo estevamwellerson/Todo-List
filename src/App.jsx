@@ -64,13 +64,13 @@ export default function App() {
             <div className="list">
               <li key={item.id}>                         
                   
-                <Button className="btn-complete" onClick={(e) => toggleComplete(item.id)}>✅</Button>
+                <Button className="btn-icon" onClick={(e) => toggleComplete(item.id)}>✅</Button>
 
                 <span style={{textDecoration: item.complete ? 'line-through' : 'none'}}>
                   {item.value}
                 </span>
 
-                <Button className="btn-clear" onClick={(e) => deleteItem(item.id)} >🗑️</Button>
+                <Button className="btn-icon" onClick={(e) => deleteItem(item.id)} >🗑️</Button>
 
               </li>
             </div>
