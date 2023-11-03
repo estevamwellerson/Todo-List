@@ -45,7 +45,7 @@ const Home = () => {
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
         />
-        <Button onClick={(e) => addItem()}>
+        <Button onClick={() => addItem()}>
           Add
         </Button>
       </div>
@@ -55,11 +55,11 @@ const Home = () => {
           return (
             <div className="list" key={item.id}>
               <li key={item.id}>
-                <Button className="btn-icon" onClick={(e) => toggleComplete(item.id)}>✅</Button>
+                <Button className="btn-icon" onClick={() => toggleComplete(item.id)}>✅</Button>
                 <span style={{textDecoration: item.complete ? 'line-through' : 'none'}}>
                   {item.value}
                 </span>
-                <Button className="btn-icon" onClick={(e) => deleteItem(item.id)} >🗑️</Button>
+                <Button className="btn-icon" onClick={() => deleteItem(item.id)} >🗑️</Button>
               </li>
             </div>
           );
