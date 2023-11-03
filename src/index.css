@@ -1,45 +1,44 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Rubik', 'Noto', 'sans-serif';
 }
-body{
+
+body {
   display: grid;
   place-content: center;
   background-color: rgb(99, 71, 118);
 }
-.app{
+
+.app {
   margin-top: 8rem;
   padding: 2rem;
   border-radius: 1rem;
   background-color: rgb(124, 100, 131);
 }
-h1{
+
+h1 {
   text-align: center;
   font-size: 40px;
   margin-bottom: 0.5rem;
   color: white;
 }
 
-input{
+input {
   width: 14.5rem;
-}
-
-input, .btn-add{
   border: none;
   border-radius: 0.5rem;
   margin: 0.5rem 0.5rem;
   padding: 1rem 1.5rem;
 }
 
-.btn-complete, .btn-clear{
-  border: none;
+.btn-icon {
   background-color: transparent;
   padding: 1rem;
 }
 
-li{
+li {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -48,7 +47,7 @@ li{
   border-radius: 0.5rem;
   color: white;
   background-color: #2d2d2d;
-  margin: 0.5rem 0.5rem; 
+  margin: 0.5rem 0.5rem;
 }
 
 
