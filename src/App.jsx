@@ -11,19 +11,15 @@ export default function App() {
       alert("adicione uma tarefa!");
       return;
     }
-
-      const item = {
-        id: Math.floor(Math.random() * 1000),
-        value: newItem,
-      };
-
-      const saveItem = [...items, item];
-      setItems(saveItem);
-      localStorage.setItem("items", JSON.stringify(saveItem));
-      setNewItem("");
-    }
-    
-
+    const item = {
+      id: Math.floor(Math.random() * 1000),
+      value: newItem,
+    };
+    const saveItem = [...items, item];
+    setItems(saveItem);
+    localStorage.setItem("items", JSON.stringify(saveItem));
+    setNewItem("");
+  }
 
   function deleteItem(id) {
     const updatedItems = items.filter((item) => item.id !== id);
@@ -32,12 +28,11 @@ export default function App() {
   }
 
   function toggleComplete(id){
-    const updatedItems = items.map((item) => 
+    const updatedItems = items.map((item) =>
     item.id === id ? {...item, complete: !item.complete} : item);
     setItems(updatedItems);
     localStorage.setItem('items', JSON.stringify(updatedItems))
   }
-
 
   return (
     <div className="app">
@@ -50,28 +45,21 @@ export default function App() {
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
         />
-
         <Button type="submit" onClick={(e) => addItem()}>
           Add
         </Button>
       </div>
 
-      {/* 3.List of item */}
-
       <ul>
         {items.map((item) => {
           return (
             <div className="list">
-              <li key={item.id}>                         
-                  
+              <li key={item.id}>
                 <Button className="btn-icon" onClick={(e) => toggleComplete(item.id)}>✅</Button>
-
                 <span style={{textDecoration: item.complete ? 'line-through' : 'none'}}>
                   {item.value}
                 </span>
-
                 <Button className="btn-icon" onClick={(e) => deleteItem(item.id)} >🗑️</Button>
-
               </li>
             </div>
           );
