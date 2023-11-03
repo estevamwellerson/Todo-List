@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "../../shared/components";
+import { TodoForm } from "./components";
 
 const Home = () => {
   const initialItems = JSON.parse(localStorage.getItem("items")) || [];
@@ -38,17 +39,7 @@ const Home = () => {
     <>
       <h1>TODO - LIST 📔</h1>
 
-      <div className="input-area">
-        <input
-          type="text"
-          placeholder="Qual o planejamento de hoje?"
-          value={newItem}
-          onChange={(e) => setNewItem(e.target.value)}
-        />
-        <Button onClick={() => addItem()}>
-          Add
-        </Button>
-      </div>
+      <TodoForm value={newItem} onTypeTodo={setNewItem} onAddTodo={addItem} />
 
       <ul>
         {items.map((item) => {
