@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Button } from "../../shared/components";
-import { TodoForm } from "./components";
+import { TodoForm, TodoList } from "./components";
 
 const Home = () => {
   const initialItems = JSON.parse(localStorage.getItem("items")) || [];
@@ -38,24 +37,8 @@ const Home = () => {
   return (
     <>
       <h1>TODO - LIST 📔</h1>
-
       <TodoForm value={newItem} onTypeTodo={setNewItem} onAddTodo={addItem} />
-
-      <ul>
-        {items.map((item) => {
-          return (
-            <div className="list" key={item.id}>
-              <li key={item.id}>
-                <Button className="btn-icon" onClick={() => toggleComplete(item.id)}>✅</Button>
-                <span style={{textDecoration: item.complete ? 'line-through' : 'none'}}>
-                  {item.value}
-                </span>
-                <Button className="btn-icon" onClick={() => deleteItem(item.id)} >🗑️</Button>
-              </li>
-            </div>
-          );
-        })}
-      </ul>
+      <TodoList items={items} onToggle={toggleComplete} onDelete={deleteItem} />
     </>
   )
 }
