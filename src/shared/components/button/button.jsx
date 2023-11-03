@@ -1,6 +1,6 @@
 
-const Button = ({ className, onClick, children }) => {
-  return <button className={`btn ${className}`} onClick={onClick}>{children}</button>
+const Button = ({ className, ...props }) => {
+  return <button className={`btn ${className}`} {...props} />
 }
 
 export default Button;
